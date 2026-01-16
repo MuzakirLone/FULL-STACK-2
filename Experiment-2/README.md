@@ -1,4 +1,7 @@
-Learning Outcomes:
-1. Learned how to make a Vite, React Application
-2. Learned how to use github and git to commit and push files to a repository
-3. Learned how to deploy an web application on netlify.
+23BIS70035 - PARTH KANSAL
+
+# Learning outcomes
+- Understand Single Page Application (SPA) concepts 
+- Apply React fundamentals such as functional components, JSX, props, and state management to build modular web pages.
+- Use Material UI (MUI) components to design a clean and responsive user interface.
+- Implement client-side routing using React Router to enable URL-based navigation between pages

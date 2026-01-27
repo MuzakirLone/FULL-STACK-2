@@ -8,7 +8,7 @@ export default function Home() {
     const [name, setName] = useState('');
     const [accepted, setAccepted] = useState(false);
 
-    return (
+    return (   
         <Box sx={{ p: 2 }}>
             <h2>Home Page</h2>
             <MuiTextField label="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />

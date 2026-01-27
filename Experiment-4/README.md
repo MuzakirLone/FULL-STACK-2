@@ -1,16 +1,17 @@
-# React + Vite
+# Experiment 4: State Management in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This experiment demonstrates and compares three different approaches to state management in React applications: **Local State**, **Context API**, and **Redux**.
 
-Currently, two official plugins are available:
+## Learning Outcomes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  **Understanding State Scope**: I learned the distinction between **Local State** (confined to a single component) and **Global State** (shared across the entire application or a specific tree of components).
 
-## React Compiler
+2.  **Local State Implementation**: I practiced using the `useState` hook to manage independent component data, which is ideal for isolated UI elements like form inputs or individual toggles.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3.  **Context API for Prop Drilling**: I learned how to use the React **Context API** (`createContext`, `Provider`, and `useContext`) to pass data through the component tree without manually passing props at every level, suitable for themes or user authentication.
 
-## Expanding the ESLint configuration
+4.  **Redux Architecture**: I understood the core principles of **Redux**: a single source of truth (**Store**), pure functions to handle state changes (**Reducers**), and the unidirectional data flow.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+5.  **Interacting with Redux**: I learned how to use `react-redux` hooks to interact with the store: `useSelector` to read data and `useDispatch` to send **Actions** (like `INCREMENT` or `DECREMENT`) that trigger state updates.
+
+6.  **Choosing the Right Strategy**: I realized that while Redux offers powerful debugging and state predictability for large complex apps, Local State and Context API are often sufficient and simpler for smaller applications or specific features.

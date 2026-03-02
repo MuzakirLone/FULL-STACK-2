@@ -143,3 +143,19 @@ JWT auth requires two steps: **login** to get a token, then **use the token** on
 | `400` | Malformed request body or credentials format |
 | `401` | Missing, incorrect, or expired credentials/token |
 | `200` | Authenticated successfully |
+
+## Learning Outcomes
+
+1. **HTTP Basic Authentication:** Understand how to implement basic authentication using the `Authorization: Basic` header and Base64 encoding.
+2. **Custom Header Authentication:** Learn to use custom HTTP headers (e.g., `X-Username`, `X-Password`) for passing credentials.
+3. **JWT (JSON Web Tokens):** Understand the structure of JWTs (header, payload, signature) and how to generate, sign, and verify them using `PyJWT`.
+4. **Token-Based Security:** Implement token-based authentication for securing API endpoints and protecting sensitive data.
+5. **Flask Authentication:** Gain practical experience in building authentication systems using Flask and Flask-CORS.
+
+## Screenshots
+
+1. <img width="1252" height="719" alt="image" src="https://github.com/user-attachments/assets/1dc04879-1f57-420f-b4b8-b5c1ce447392" />
+2. <img width="1251" height="745" alt="image" src="https://github.com/user-attachments/assets/526502d2-f55f-4cb9-9622-76ae66247e08" />
+3. <img width="1249" height="737" alt="image" src="https://github.com/user-attachments/assets/37a918bd-5cfa-48f2-9ea0-2a370c3b94c5" />
+4. <img width="1252" height="815" alt="image" src="https://github.com/user-attachments/assets/eed7d8e6-8fbf-4a7d-a86e-39635239c4b8" />
+5. <img width="1267" height="780" alt="image" src="https://github.com/user-attachments/assets/aa3a3081-1240-4c83-a5b8-ef2d64006af5" />

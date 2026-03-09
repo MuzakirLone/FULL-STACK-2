@@ -144,6 +144,7 @@ JWT auth requires two steps: **login** to get a token, then **use the token** on
 | `401` | Missing, incorrect, or expired credentials/token |
 | `200` | Authenticated successfully |
 
+
 ## Learning Outcomes
 
 1. **HTTP Basic Authentication:** Understand how to implement basic authentication using the `Authorization: Basic` header and Base64 encoding.

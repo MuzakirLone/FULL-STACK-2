@@ -237,18 +237,25 @@ Try with `102` for Customer-2:
 
 ### Customer Service
 
-1.
-   <!-- Add screenshot here -->
+1. Health
+<img width="1259" height="433" alt="Screenshot 2026-03-24 161148" src="https://github.com/user-attachments/assets/13ec9cab-ce36-47c8-80b4-325353de0426" />
 
-2.
-   <!-- Add screenshot here -->
+
+2. Customers + Orders 1 
+<img width="1242" height="831" alt="Screenshot 2026-03-24 161159" src="https://github.com/user-attachments/assets/512c030e-f468-4e4b-9bc0-8ab6315e4cd5" />
+
+3. Customers + Orders 2
+<img width="1247" height="826" alt="Screenshot 2026-03-24 161233" src="https://github.com/user-attachments/assets/18064c92-d8b5-4448-b344-f13f46506013" />
+
 
 ---
 
 ### Order Service
 
-1.
-   <!-- Add screenshot here -->
+1. Order Update 1
+<img width="1259" height="817" alt="Screenshot 2026-03-24 161627" src="https://github.com/user-attachments/assets/1cdf262e-dc2b-4e29-a171-f4d83d21cd3f" />
 
-2.
-   <!-- Add screenshot here -->
+2. Order Update 2
+<img width="1261" height="777" alt="Screenshot 2026-03-24 161830" src="https://github.com/user-attachments/assets/b298a814-9193-456a-880b-3b70780ebc9b" />
+
+

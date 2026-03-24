@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import requests
 
+# Render URL: https://two3bis70067-experiment-11-customer.onrender.com
 app = Flask(__name__)
 
 customers = {
@@ -16,7 +17,7 @@ def get_account_details(user_id):
     if not customer:
         return jsonify({"error": "Customer not found"}), 404
 
-    # Call Order Service
+    # Call Order Service (Render: https://two3bis70067-experiment-11-order.onrender.com)
     try:
         response = requests.get(
             f"https://two3bis70067-experiment-11-order.onrender.com/orders/user/{user_id}",

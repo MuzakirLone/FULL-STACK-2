@@ -1,30 +1,18 @@
 # Experiment-13: Student Management REST API (Flask)
 
-A complete RESTful API for managing student records with CRUD operations, built using Flask, SQLAlchemy, and Marshmallow for validation.
+A Flask-based REST API for managing student records with CRUD operations, validation, pagination, and deployment support for Render or local development.
 
 ---
 
-## Architecture
+## Overview
 
-```
-Flask Application
-    ↓
-SQLAlchemy ORM
-    ↓
-PostgreSQL (Production) / SQLite (Development)
-```
-
-The API supports automatic database switching between PostgreSQL (for cloud deployment) and SQLite (for local development).
+The application stores student data in a SQL database through SQLAlchemy. It uses PostgreSQL when `DATABASE_URL` is available and falls back to SQLite for local testing.
 
 ---
 
-## Setup (Local)
+## Setup
 
-### Prerequisites
-- Python 3.8+
-- pip
-
-### Installation
+### Local Run
 
 ```bash
 cd "Experiment-13"
@@ -32,7 +20,28 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Runs at: `http://localhost:5000`
+By default, the app runs at `http://localhost:5000`.
+
+### Production Run
+
+The `Procfile` starts the application with Gunicorn:
+
+```bash
+web: gunicorn app:app
+```
+
+### Render Link: 
+-https://two3bis70067-experiment-13.onrender.com/
+
+---
+
+## Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | `sqlite:///students.db` |
+
+If `DATABASE_URL` starts with `postgres://`, the app converts it to `postgresql://` for compatibility.
 
 ---
 
@@ -40,59 +49,43 @@ Runs at: `http://localhost:5000`
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/` | API home / status check |
-| `GET` | `/health` | Health check endpoint |
-| `GET` | `/students` | Get all students (with pagination) |
-| `GET` | `/students/<id>` | Get a specific student by ID |
+| `GET` | `/` | API home/status check |
+| `GET` | `/health` | Health check |
+| `GET` | `/students` | Get all students with pagination |
+| `GET` | `/students/<id>` | Get a single student by ID |
 | `POST` | `/students` | Create a new student |
 | `PUT` | `/students/<id>` | Update an existing student |
 | `DELETE` | `/students/<id>` | Delete a student |
 
 ---
 
-## API Testing Guide
+## API Examples
 
-> Use Postman, Thunder Client, or cURL to test the endpoints below.
+### Home
 
----
+`GET /`
 
-### 1. Home / Status Check
-
-- **Method:** `GET`
-- **URL:** `http://localhost:5000/`
-
-**Expected Response (200):**
 ```json
 {
   "status": "success",
-  "message": "Student Management API is running 🚀",
-  "version": "1.0"
+  "message": "Student API Running 🚀"
 }
 ```
 
----
+### Health Check
 
-### 2. Health Check
+`GET /health`
 
-- **Method:** `GET`
-- **URL:** `http://localhost:5000/health`
-
-**Expected Response (200):**
 ```json
 {
-  "status": "healthy",
-  "service": "student-api"
+  "status": "OK"
 }
 ```
 
----
+### Create Student
 
-### 3. Create a Student
+`POST /students`
 
-- **Method:** `POST`
-- **URL:** `http://localhost:5000/students`
-- **Headers:** `Content-Type: application/json`
-- **Body (raw → JSON):**
 ```json
 {
   "uid": "STU001",
@@ -101,85 +94,8 @@ Runs at: `http://localhost:5000`
 }
 ```
 
-**Expected Response (201):**
-```json
-{
-  "status": "success",
-  "message": "Student created successfully",
-  "data": {
-    "id": 1,
-    "uid": "STU001",
-    "name": "John Doe",
-    "age": 20
-  }
-}
-```
+Expected response:
 
-**Error — Missing fields (400):**
-```json
-{
-  "status": "error",
-  "errors": {
-    "name": ["Student name is required"],
-    "age": ["Student age is required"]
-  }
-}
-```
-
-**Error — Duplicate UID (400):**
-```json
-{
-  "status": "error",
-  "message": "Student with this UID already exists"
-}
-```
-
----
-
-### 4. Get All Students (Paginated)
-
-- **Method:** `GET`
-- **URL:** `http://localhost:5000/students?page=1&limit=5`
-
-**Query Parameters:**
-- `page` (optional, default: 1)
-- `limit` (optional, default: 5, max: 100)
-
-**Expected Response (200):**
-```json
-{
-  "status": "success",
-  "pagination": {
-    "total": 10,
-    "page": 1,
-    "limit": 5,
-    "pages": 2
-  },
-  "data": [
-    {
-      "id": 1,
-      "uid": "STU001",
-      "name": "John Doe",
-      "age": 20
-    },
-    {
-      "id": 2,
-      "uid": "STU002",
-      "name": "Jane Smith",
-      "age": 22
-    }
-  ]
-}
-```
-
----
-
-### 5. Get Single Student
-
-- **Method:** `GET`
-- **URL:** `http://localhost:5000/students/1`
-
-**Expected Response (200):**
 ```json
 {
   "status": "success",
@@ -192,22 +108,29 @@ Runs at: `http://localhost:5000`
 }
 ```
 
-**Error — Student not found (404):**
+### Get Students with Pagination
+
+`GET /students?page=1&limit=5`
+
+Expected response shape:
+
 ```json
 {
-  "status": "error",
-  "message": "Resource not found"
+  "status": "success",
+  "total": 10,
+  "page": 1,
+  "data": []
 }
 ```
 
----
+### Get Single Student
 
-### 6. Update Student
+`GET /students/1`
 
-- **Method:** `PUT`
-- **URL:** `http://localhost:5000/students/1`
-- **Headers:** `Content-Type: application/json`
-- **Body (raw → JSON):**
+### Update Student
+
+`PUT /students/1`
+
 ```json
 {
   "name": "John Updated",
@@ -215,46 +138,32 @@ Runs at: `http://localhost:5000`
 }
 ```
 
-**Expected Response (200):**
-```json
-{
-  "status": "success",
-  "message": "Student updated successfully",
-  "data": {
-    "id": 1,
-    "uid": "STU001",
-    "name": "John Updated",
-    "age": 21
-  }
-}
-```
+### Delete Student
 
-**Error — Validation failed (400):**
-```json
-{
-  "status": "error",
-  "errors": {
-    "age": ["Must be between 1 and 120."]
-  }
-}
-```
+`DELETE /students/1`
 
 ---
 
-### 7. Delete Student
+## Validation Rules
 
-- **Method:** `DELETE`
-- **URL:** `http://localhost:5000/students/1`
+| Field | Rule |
+|-------|------|
+| `uid` | Required, at least 3 characters |
+| `name` | Required, at least 2 characters |
+| `age` | Required, integer, between 1 and 120 |
 
-**Expected Response (200):**
-```json
-{
-  "status": "success",
-  "message": "Student John Doe deleted successfully"
-}
-```
+---
 
-**Error — Student not found (404):**
+## Error Responses
+
+| Code | Reason |
+|------|--------|
+| `400` | Validation error or duplicate UID |
+| `404` | Student not found |
+| `500` | Internal server error |
+
+Common error payloads:
+
 ```json
 {
   "status": "error",
@@ -262,60 +171,12 @@ Runs at: `http://localhost:5000`
 }
 ```
 
----
-
-## Database Schema
-
-### Student Model
-
-| Column | Type | Constraints |
-|--------|------|-------------|
-| `id` | Integer | Primary Key, Auto-increment |
-| `uid` | String(20) | Unique, Not Null, Indexed |
-| `name` | String(100) | Not Null |
-| `age` | Integer | Not Null |
-
----
-
-## Validation Rules
-
-| Field | Rules |
-|-------|-------|
-| `name` | Required, 2-100 characters |
-| `age` | Required, Integer, 1-120 |
-| `uid` | Required, 3-20 characters, Unique |
-
----
-
-## Error Reference
-
-| Code | Reason |
-|------|--------|
-| `200` | Request successful |
-| `201` | Resource created successfully |
-| `400` | Validation error or duplicate UID |
-| `404` | Student not found |
-| `500` | Internal server error |
-
----
-
-## Deployment
-
-### Using Gunicorn (Production)
-
-```bash
-gunicorn app:app
+```json
+{
+  "status": "error",
+  "message": "UID already exists"
+}
 ```
-
-The `Procfile` is configured for deployment on platforms like Render or Heroku.
-If you create the Render web service manually, set the root directory to `Experiment-13`.
-
-### Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `DATABASE_URL` | PostgreSQL connection string | `sqlite:///students.db` |
-| `PORT` | Server port | `5000` |
 
 ---
 
@@ -323,50 +184,19 @@ If you create the Render web service manually, set the root directory to `Experi
 
 ```
 Experiment-13/
-│
-├── app.py                 # Main Flask application
-├── requirements.txt       # Python dependencies
-├── Procfile              # Deployment configuration
-└── README.md             # This file
+├── app.py
+├── Procfile
+├── requirements.txt
+├── instance/
+└── README.md
 ```
-
----
-
-## Features
-
-✅ **CRUD Operations:** Complete Create, Read, Update, Delete functionality  
-✅ **Data Validation:** Marshmallow schema validation with custom error messages  
-✅ **Pagination:** Efficient data retrieval with configurable page size  
-✅ **Database Flexibility:** Automatic switching between PostgreSQL and SQLite  
-✅ **Error Handling:** Comprehensive error handlers for validation, 404, and 500 errors  
-✅ **RESTful Design:** Standard HTTP methods and status codes  
-✅ **Production Ready:** Gunicorn configuration for deployment  
 
 ---
 
 ## Learning Outcomes
 
-1. **RESTful API Development:** Build a complete REST API following industry best practices with proper HTTP methods and status codes.
-2. **ORM (Object-Relational Mapping):** Use SQLAlchemy to interact with databases using Python objects instead of raw SQL.
-3. **Data Validation:** Implement robust input validation using Marshmallow schemas to ensure data integrity.
-4. **Database Management:** Handle database connections, migrations, and automatic switching between development and production databases.
-5. **Error Handling:** Implement comprehensive error handling with meaningful error messages and appropriate HTTP status codes.
-6. **Pagination:** Implement efficient data pagination for handling large datasets.
-7. **Cloud Deployment:** Deploy Flask applications to cloud platforms using environment variables and process managers like Gunicorn.
-
----
-
-## Technologies Used
-
-- **Flask** - Lightweight web framework
-- **SQLAlchemy** - ORM for database operations
-- **Marshmallow** - Data validation and serialization
-- **PostgreSQL** - Production database (cloud)
-- **SQLite** - Development database (local)
-- **Gunicorn** - WSGI HTTP server for production
-
----
-
-## License
-
-This project is for educational purposes as part of Full-Stack Development coursework.
+1. Understand how to build a RESTful API with Flask for basic CRUD operations.
+2. Learn how to connect Flask with SQLAlchemy for database-backed applications.
+3. Practice using Marshmallow validation to enforce input rules and return useful errors.
+4. Learn how to implement pagination and standard HTTP status codes in an API.
+5. Understand how to prepare a Flask app for deployment with Gunicorn and Render.

@@ -193,6 +193,22 @@ Experiment-13/
 
 ---
 
+## Screenshots
+
+1.
+  <img width="1246" height="434" alt="Screenshot 2026-04-08 172230" src="https://github.com/user-attachments/assets/798a0d16-9de1-433a-966e-88f4981893dd" />
+2.
+  <img width="1255" height="446" alt="Screenshot 2026-04-08 172237" src="https://github.com/user-attachments/assets/1c2feaf1-15cb-4d65-afa4-20b2033ba653" />
+3.
+  <img width="1256" height="794" alt="Screenshot 2026-04-08 172330" src="https://github.com/user-attachments/assets/32408e7c-2091-44a7-aac9-4d37adb01532" />
+4.
+  <img width="1256" height="689" alt="Screenshot 2026-04-08 172422" src="https://github.com/user-attachments/assets/c45fe037-f13c-4da8-9c88-d5aeaee12c62" />
+5.
+  <img width="1249" height="607" alt="Screenshot 2026-04-08 172505" src="https://github.com/user-attachments/assets/60ef1550-2eeb-4175-b29c-0ae6d670bcd5" />
+6.
+  <img width="1266" height="465" alt="Screenshot 2026-04-08 172554" src="https://github.com/user-attachments/assets/748859e4-c886-4d95-8b73-d36123874c2e" />
+
+
 ## Learning Outcomes
 
 1. Understand how to build a RESTful API with Flask for basic CRUD operations.

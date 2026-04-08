@@ -307,7 +307,8 @@ Runs at: `http://localhost:5000`
 gunicorn app:app
 ```
 
-The `ProcFile` is configured for deployment on platforms like Render or Heroku.
+The `Procfile` is configured for deployment on platforms like Render or Heroku.
+If you create the Render web service manually, set the root directory to `Experiment-13`.
 
 ### Environment Variables
 
@@ -325,7 +326,7 @@ Experiment-13/
 │
 ├── app.py                 # Main Flask application
 ├── requirements.txt       # Python dependencies
-├── ProcFile              # Deployment configuration
+├── Procfile              # Deployment configuration
 └── README.md             # This file
 ```
 

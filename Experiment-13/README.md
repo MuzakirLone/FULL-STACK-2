@@ -31,7 +31,7 @@ web: gunicorn app:app
 ```
 
 ### Render Link: 
-->  https://two3bis70067-experiment-13.onrender.com/
+- https://two3bis70067-experiment-13.onrender.com/
 
 ---
 
@@ -209,8 +209,6 @@ Experiment-13/
   <img width="1266" height="465" alt="Screenshot 2026-04-08 172554" src="https://github.com/user-attachments/assets/748859e4-c886-4d95-8b73-d36123874c2e" />
 7. Database
    <img width="1062" height="603" alt="image" src="https://github.com/user-attachments/assets/ad6a5682-3377-496b-b7cf-a93823297bc5" />
-
-
 ## Learning Outcomes
 
 1. Understand how to build a RESTful API with Flask for basic CRUD operations.

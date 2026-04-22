@@ -123,6 +123,7 @@ pytest -v
 ```bash
 pytest --cov=app --cov-report=term-missing --cov-report=html
 ```
+*(Open `htmlcov/index.html` to view the comprehensive graphical report).*
 
 ### Frontend Tests
 
@@ -145,8 +146,14 @@ npm run test
 **2. All Tests Passed**
 <img width="1451" height="470" alt="Screenshot 2026-04-17 153028" src="https://github.com/user-attachments/assets/381dcb23-4de6-4237-8788-fe820bfb4050" />
 
+**3. Failed Test Case**
+*(Paste your screenshot here)*
+
 **4. Coverage Report (Terminal)**
 <img width="937" height="538" alt="WhatsApp Image 2026-04-17 at 4 11 37 PM" src="https://github.com/user-attachments/assets/229046f9-42ba-4296-b4f5-c57424c4109a" />
+
+**5. Coverage Report (HTML)**
+*(Paste your screenshot here)*
 
 ### Frontend Testing
 

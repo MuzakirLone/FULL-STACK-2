@@ -34,17 +34,19 @@ We configured a GitHub Actions workflow `.github/workflows/ci.yml` that performs
 
 ### Screenshot 1: Docker Image and Running Container in CLI
 
-*(Add your screenshot here showing the terminal output of the docker build and docker run commands)*
-![Docker Container CLI](Screenshots/docker_cli.png)
+<img width="828" height="187" alt="image" src="https://github.com/user-attachments/assets/311e5fcf-7727-4d32-bd66-506314bf3835" />
 
-### Screenshot 2: GitHub Actions Workflow
+### Screenshot 2: GitHub Secrets configuration
 
-*(Add your screenshot here showing the successful execution of the CI/CD pipeline on the GitHub repository Actions tab)*
-![GitHub Actions Pipeline](Screenshots/github_actions.png)
+<img width="1088" height="276" alt="image" src="https://github.com/user-attachments/assets/05ece73c-f079-45d1-adff-15d46c19054a" />
 
-### Screenshot 3: GitHub Secrets configuration
+### Screenshot 3: Complete GitHub Actions Workflow
 
-*(Add your screenshot here showing the DOCKER_USERNAME and DOCKER_PASSWORD configured in your repository secrets)*
-![GitHub Secrets](Screenshots/github_secrets.png)
+<img width="1854" height="840" alt="image" src="https://github.com/user-attachments/assets/2bcd2eb8-2661-405e-a3d3-b58da073d34f" />
+
+### Screenshot 4: Docker Hub Images Pushed Successfully
+
+<img width="1881" height="547" alt="image" src="https://github.com/user-attachments/assets/5ff66ffc-a1cc-477f-bbed-6c9ba2a7a702" />
+
 
 ---

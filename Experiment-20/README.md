@@ -19,7 +19,7 @@ To allow GitHub Actions to securely push the built images to Docker Hub, we need
 1. Created an Access Token in Docker Hub for secure authentication.
 2. Added the following repository secrets in the GitHub repository (Settings > Secrets and variables > Actions):
    - `DOCKER_USERNAME`: Your Docker Hub username.
-   - `DOCKER_PASSWORD`: The Docker Hub Access Token generated in step 1.
+   - `DOCKER_PASSWORD`: Docker Password
 
 ### C. CI/CD Integration using GitHub Actions
 

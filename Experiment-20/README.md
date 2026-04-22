@@ -48,5 +48,11 @@ We configured a GitHub Actions workflow `.github/workflows/ci.yml` that performs
 
 <img width="1881" height="547" alt="image" src="https://github.com/user-attachments/assets/5ff66ffc-a1cc-477f-bbed-6c9ba2a7a702" />
 
+### Learning Outcomes
+1. Learned how to containerize a full-stack application using Docker and connect multiple containers through Docker Compose.
+2. Understood the CI/CD pipeline stages — automated testing, building Docker images, pushing to Docker Hub, and deploying via Compose.
+3. Gained hands-on experience configuring GitHub Actions workflows including MySQL service containers for integration testing.
+4. Learned to manage sensitive credentials securely using GitHub repository secrets.
+5. Understood how Docker Compose simplifies multi-container orchestration compared to running containers manually.
 
 ---
